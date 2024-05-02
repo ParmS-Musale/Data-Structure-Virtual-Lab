@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithms Virtual Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sorting Algorithms Virtual Lab</h1>
+    
+    <div class="input-section">
+      <h2>Input Array</h2>
+      <form id="input-form">
+        <input type="text" id="array-input" placeholder="Enter array elements separated by commas">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    
+    <div class="visualization-section">
+      <h2>Visualization Bars</h2>
+      <div id="visualization-area"></div>
+    </div>
+    
+    <div class="control-panel">
+      <h2>Select The Sorting Algorithm</h2>
+      <div class="algorithm-selection">
+        <label for="algorithm-select">Select Algorithm:</label>
+        <select id="algorithm-select">
+          <option value="bubble-sort">Bubble Sort</option>
+          <option value="quick-sort">Quick Sort</option>
+          <!-- <option value="merge-sort">Merge Sort</option> -->
+        </select>
+      </div>
+      <div class="animation-controls">
+        <button id="start-animation">Start Animation</button>
+        <button id="reset-animation">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
