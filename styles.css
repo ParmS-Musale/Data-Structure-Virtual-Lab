@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  /* Input Section */
+  .input-section {
+    margin-bottom: 20px;
+  }
+  
+  #input-form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #array-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  /* Visualization Section */
+  .visualization-section {
+    margin-bottom: 20px;
+  }
+  
+  #visualization-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    grid-gap: 2px;
+    height: 300px;
+    background-color: #222;
+    padding: 10px;
+  }
+  
+  #visualization-area div {
+    background-color: #4CAF50;
+    height: 100%;
+    transition: height 0.5s ease;
+  }
+  
+  /* Control Panel */
+  .control-panel {
+    text-align: center;
+  }
+  
+  .algorithm-selection {
+    margin-bottom: 10px;
+  }
+  
+  #algorithm-select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
