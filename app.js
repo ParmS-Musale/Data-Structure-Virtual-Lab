@@ -15,7 +15,7 @@ resetAnimationBtn.addEventListener('click', resetVisualization);
 let bars = [];
 
 // Animation delay in milliseconds
-const animationDelay = 500;
+const animationDelay = 1000;
 
 // Function to handle form submission
 function handleSubmit(e) {
@@ -26,18 +26,53 @@ function handleSubmit(e) {
 
 // Function to create the visualization
 function createVisualization(arr) {
-  visualizationArea.innerHTML = '';
-  bars = [];
+  visualizationArea.innerHTML = '';  // Clear existing bars
+  bars = [];  // Reset the bars array
 
-  const maxValue = Math.max(...arr);
+  const maxValue = Math.max(...arr);  // Find the maximum value for scaling
   for (let i = 0; i < arr.length; i++) {
     const bar = document.createElement('div');
+    const barLabel = document.createElement('span');  // Create a span for the label
+
+    // Set the height relative to the maximum value and center the label
     bar.style.height = `${(arr[i] / maxValue) * 100}%`;
-    bar.classList.add('bar');
-    visualizationArea.appendChild(bar);
-    bars.push(bar);
+    barLabel.innerText = arr[i];  // Set the label text to the array value
+    barLabel.classList.add('bar-label');  // Optional: Apply some style to the label
+
+    bar.appendChild(barLabel);  // Append the label to the bar
+    bar.classList.add('bar');  // Apply styles to the bar
+    bar.style.backgroundColor = getRandomColor();  // Set a random background color
+
+    visualizationArea.appendChild(bar);  // Add the bar to the visualization area
+    bars.push(bar);  // Add the bar to the bars array
   }
 }
+
+// function createVisualization(arr) {
+//   visualizationArea.innerHTML = '';  // Clear existing bars
+//   bars = [];  // Reset the bars array
+
+//   const maxValue = Math.max(...arr);  // Find the maximum value for scaling
+//   for (let i = 0; i < arr.length; i++) {
+//     const bar = document.createElement('div');
+//     const barLabel = document.createElement('span');  // Create a span for the label
+
+//     // Set the height relative to the maximum value
+//     bar.style.height = `${(arr[i] / maxValue) * 100}%`;
+
+//     // Set the label text to the array value and apply styles to place it outside the bar
+//     barLabel.innerText = arr[i];
+//     barLabel.classList.add('bar-label'); // Assign a class to the label
+
+//     bar.appendChild(barLabel);  // Append the label to the bar
+
+//     bar.classList.add('bar');  // Apply styles to the bar
+//     bar.style.backgroundColor = getRandomColor();  // Set a random background color
+
+//     visualizationArea.appendChild(bar);  // Add the bar to the visualization area
+//     bars.push(bar);  // Add the bar to the bars array
+//   }
+// }
 
 // Function to start the animation
 function startAnimation() {
@@ -185,10 +220,23 @@ function merge(left, right) {
   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
-// Function to update the visualization
+
 function updateVisualization(arr) {
-  const maxValue = Math.max(...arr);
+  const maxValue = Math.max(...arr);  // Find the maximum value for scaling
   for (let i = 0; i < bars.length; i++) {
-    bars[i].style.height = `${(arr[i] / maxValue) * 100}%`;
+    const bar = bars[i];
+    const barLabel = bar.querySelector('span');  // Get the bar's label (span element)
+
+    // Update bar height and label text
+    bar.style.height = `${(arr[i] / maxValue) * 100}%`;
+    barLabel.innerText = arr[i];  // Update the text on the label
   }
+}
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
